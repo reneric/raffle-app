@@ -41,18 +41,20 @@ class ListTextArea extends React.Component {
     event.preventDefault();
   }
 
+  setPending () {
+    this.setState({ pending: true, chosen: null });
+  }
+
+  setRandom (chosen) {
+    this.setState({ pending: false, chosen });
+
+  }
+
   async handleSubmit(event) {
     event.preventDefault();
-    this.setState({ pending: true, chosen: null });
-    // setTimeout(
-    //   () => {
-    //     this.setState({ chosen: int, pending: false });
-    //   },
-    //   2000
-    // );
-    const int = await this.getRndInteger(1, this.state.list.length - 1);
-    console.log(int);
-    this.setState({ pending: false, chosen: int });
+    this.setPending();
+    const chosen = await this.getRndInteger(1, this.state.list.length - 1);
+    this.setRandom(chosen);
   }
 
   render() {
