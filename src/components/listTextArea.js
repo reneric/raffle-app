@@ -48,11 +48,8 @@ class ListTextArea extends React.Component {
     this.setState({ pending: false, chosen: randomInt });
   }
 
-  isDisabled () {
-    return this.state.list.length <= 2;
-  }
-
   render() {
+    const isDisabled = this.state.list.length <= 2;
     return (
       <div className="inner">
         <div className="form">
@@ -60,7 +57,7 @@ class ListTextArea extends React.Component {
             <label>
               <textarea value={this.state.value} onChange={this.handleChange} />
             </label>
-            <input disabled={this.isDisabled()} type="submit" value={this.state.pending? 'Choosing...' : 'Choose Random'} />
+            <input disabled={isDisabled} type="submit" value={this.state.pending? 'Choosing...' : 'Choose Random'} />
             <button className="clear" onClick={this.handleClear}>Clear</button>
           </form>
         </div>

@@ -29,20 +29,19 @@ class List extends React.Component {
     }
   }
 
-  listDoneClass () {
-    return this.state.chosen? 'done'
-      : this.props.pending? 'pending'
-      : '';
-  }
-
   componentDidUpdate(prevProps) {
     this.valueChanged(prevProps.value);
     this.chosenChanged(prevProps.chosen);
   }
 
   render() {
+    const listDoneClass = (
+      this.state.chosen? 'done'
+      : this.props.pending? 'pending'
+      : ''
+    );
     return (
-      <ol className={this.listDoneClass()}>
+      <ol className={listDoneClass}>
         {this.state.list.map((value, index) => {
           return <li key={index} className={this.state.chosen === index ? 'active' : ''}>{value}</li>
         })}
