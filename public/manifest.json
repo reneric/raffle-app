@@ -1,6 +1,6 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "Raffle Generator",
+  "name": "Quickly enter raffle entries and choose the random winner",
   "icons": [
     {
       "src": "favicon.ico",
