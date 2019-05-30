@@ -25,6 +25,12 @@ h1 {
   padding: 10px;
 }
 
+.description {
+  font-size: 10px;
+  color: #666666;
+  margin-top: 2px;
+}
+
 ol li {
   -webkit-transition-duration: 0.4s;
   transition-duration: 0.4s;

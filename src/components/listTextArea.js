@@ -64,6 +64,7 @@ class ListTextArea extends React.Component {
           <form onSubmit={this.handleSubmit}>
             <label>
               <textarea value={this.state.value} onChange={this.handleChange} />
+              <p className="description">Paste raffle entries in the above textbox then click "Choose Random"</p>
             </label>
             <input type="submit" value={this.state.pending? 'Choosing...' : 'Choose Random'} />
             <button className="clear" onClick={this.handleClear}>Clear</button>
