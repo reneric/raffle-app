@@ -1,4 +1,4 @@
-import React, { Link } from "react";
+import React from "react";
 import Request from 'request-promise';
 import List from './list';
 
@@ -42,6 +42,7 @@ class ListTextArea extends React.Component {
   }
 
   async handleSubmit(event) {
+    event.preventDefault();
     this.setState({ pending: true, chosen: null });
     // setTimeout(
     //   () => {

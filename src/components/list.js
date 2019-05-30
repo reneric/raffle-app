@@ -1,5 +1,4 @@
 import React from "react";
-import PropTypes from 'prop-types';
 
 class List extends React.Component {
   constructor(props) {
@@ -14,9 +13,6 @@ class List extends React.Component {
 
   valueChanged (prev) {
     const newValue = this.props.value.split(/\r?\n/).filter(l => l);
-    const oldValue = prev.split(/\r?\n/);
-
-    const difference = newValue.filter(x => !oldValue.includes(x));
 
     if (this.props.value !== prev) {
       this.props.listChanged(newValue);
