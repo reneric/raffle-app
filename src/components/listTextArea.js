@@ -57,7 +57,7 @@ class ListTextArea extends React.Component {
 
   render() {
     return (
-      <div className="container-inner">
+      <div className="inner">
         <div className="form">
           <form onSubmit={this.handleSubmit}>
             <label>
