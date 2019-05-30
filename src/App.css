@@ -25,31 +25,17 @@ h1 {
   padding: 10px;
 }
 
-.description {
-  font-size: 10px;
-  color: #666666;
-  margin-top: 2px;
-}
-
 ol li {
-  -webkit-transition-duration: 1s;
-  transition-duration: 1s;
+  -webkit-transition-duration: 0.5s;
+  transition-duration: 0.5s;
 }
 
-ol.pending li,
-ol.present li,
-ol.complete li {
-  opacity: .3;
+ol.done li {
+  opacity: .1;
 }
 
-ol.complete li:not(.active) {
-  /*display: none;*/
-}
-
-button {
-  -webkit-border-radius: 0px;
-  -moz-border-radius: 0px;
-  border-radius: 0px;
+ol.pending li {
+  opacity: .4;
 }
 
 .clear {
@@ -60,14 +46,13 @@ button {
   color: #4CAF50;
   margin-top: 10px;
   border: none;
-  -webkit-appearance: none;
   font-size: 15px;
 }
 
-ol.complete li.active,
-ol.present li.active {
+ol.done li.active {
   opacity: 1;
   font-weight: bold;
+  font-size: 24px;
 }
 
 input[type="submit"]:focus {
@@ -79,7 +64,6 @@ input[type="submit"] {
   background-color: #4CAF50;
   border: none;
   color: #FFFFFF;
-  -webkit-appearance: none;
   padding: 15px 32px;
   text-align: center;
   -webkit-transition-duration: 0.4s;

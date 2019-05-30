@@ -31,7 +31,7 @@ class ListTextArea extends React.Component {
     return Number(r) || null;
     // return Math.floor(Math.random() * (max - min) ) + min;
   }
-  
+
   listChanged (list) {
     this.setState({ list });
   }
@@ -41,23 +41,15 @@ class ListTextArea extends React.Component {
     event.preventDefault();
   }
 
-  setPending () {
+  async handleSubmit(event) {
+    event.preventDefault();
     this.setState({ pending: true, chosen: null });
-  }
-
-  setRandom (chosen) {
-    this.setState({ pending: false, chosen });
+    const randomInt = await this.getRndInteger(1, this.state.list.length - 1);
+    this.setState({ pending: false, chosen: randomInt });
   }
 
   isDisabled () {
     return this.state.list.length <= 2;
-  }
-
-  async handleSubmit(event) {
-    event.preventDefault();
-    this.setPending();
-    const chosen = await this.getRndInteger(1, this.state.list.length - 1);
-    this.setRandom(chosen);
   }
 
   render() {
@@ -67,7 +59,6 @@ class ListTextArea extends React.Component {
           <form onSubmit={this.handleSubmit}>
             <label>
               <textarea value={this.state.value} onChange={this.handleChange} />
-              <p className="description">Paste raffle entries in the above textbox then click "Choose Random"</p>
             </label>
             <input disabled={this.isDisabled()} type="submit" value={this.state.pending? 'Choosing...' : 'Choose Random'} />
             <button className="clear" onClick={this.handleClear}>Clear</button>
