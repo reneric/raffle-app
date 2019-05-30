@@ -8,6 +8,65 @@
   pointer-events: none;
 }
 
+textarea {
+  width: 96%;
+  border: 2px solid #888888;
+  border-radius: 0;
+  min-height: 200px;
+  padding: 10px;
+}
+
+h1 {
+  font-weight: 300;
+  color: #fff;
+  background-color: #000;
+  display: inline-block;
+  padding: 10px;
+}
+
+ol li {
+  -webkit-transition-duration: 0.4s;
+  transition-duration: 0.4s;
+}
+
+ol.done li {
+  opacity: .3;
+}
+
+.clear {
+  text-decoration: none;
+  float: right;
+  display: inline-block;
+  color: #4CAF50;
+  margin-top: 10px;
+  border: none;
+  font-size: 15px;
+}
+
+ol.done li.active {
+  opacity: 1;
+  font-weight: bold;
+}
+
+input[type="submit"]:focus {
+  background-color: #3a883d;
+  color: #ffffff;
+}
+
+input[type="submit"] {
+  background-color: #4CAF50;
+  border: none;
+  color: #FFFFFF;
+  padding: 15px 32px;
+  text-align: center;
+  -webkit-transition-duration: 0.4s;
+  transition-duration: 0.4s;
+  margin: 16px 0 !important;
+  text-decoration: none;
+  font-size: 16px;
+  cursor: pointer;
+  width: 240px;
+}
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
@@ -17,6 +76,17 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
+}
+
+.container {
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.container-inner {
+  max-width: 600px;
+  margin: 0 auto;
 }
 
 .App-link {
