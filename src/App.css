@@ -32,12 +32,18 @@ h1 {
 }
 
 ol li {
-  -webkit-transition-duration: 0.4s;
-  transition-duration: 0.4s;
+  -webkit-transition-duration: 1s;
+  transition-duration: 1s;
 }
 
-ol.done li {
+ol.pending li,
+ol.present li,
+ol.complete li {
   opacity: .3;
+}
+
+ol.complete li:not(.active) {
+  /*display: none;*/
 }
 
 button {
@@ -58,7 +64,8 @@ button {
   font-size: 15px;
 }
 
-ol.done li.active {
+ol.complete li.active,
+ol.present li.active {
   opacity: 1;
   font-weight: bold;
 }

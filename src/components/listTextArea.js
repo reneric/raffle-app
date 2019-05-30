@@ -47,7 +47,10 @@ class ListTextArea extends React.Component {
 
   setRandom (chosen) {
     this.setState({ pending: false, chosen });
+  }
 
+  isDisabled () {
+    return this.state.list.length <= 2;
   }
 
   async handleSubmit(event) {
@@ -66,7 +69,7 @@ class ListTextArea extends React.Component {
               <textarea value={this.state.value} onChange={this.handleChange} />
               <p className="description">Paste raffle entries in the above textbox then click "Choose Random"</p>
             </label>
-            <input type="submit" value={this.state.pending? 'Choosing...' : 'Choose Random'} />
+            <input disabled={this.isDisabled()} type="submit" value={this.state.pending? 'Choosing...' : 'Choose Random'} />
             <button className="clear" onClick={this.handleClear}>Clear</button>
           </form>
         </div>

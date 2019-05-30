@@ -8,6 +8,7 @@ class List extends React.Component {
       list: [],
       chosen: null,
       pending: false,
+      listClass: '',
     };
   }
 
@@ -16,7 +17,7 @@ class List extends React.Component {
 
     if (this.props.value !== prev) {
       this.props.listChanged(newValue);
-      this.setState({list: newValue});
+      this.setState({ list: newValue });
     }
   }
 
@@ -24,23 +25,30 @@ class List extends React.Component {
     const newValue = this.props.chosen;
     const oldValue = prev;
 
-    if (oldValue !== newValue) {
-      this.setState({ chosen: newValue });
+    if (oldValue !== newValue && newValue) {
+      this.setState({ chosen: newValue, listClass: 'present' });
     }
   }
 
-  listDoneClass () {
-    return (this.state.chosen || this.props.pending)? 'done' : '';
+  pendingChanged (prev) {
+    if (prev === this.state.pending) {
+      return;
+    }
+    console.log('setPending');
+    if (this.state.pending) {
+      this.setState({ listClass: 'pending' });
+    }
   }
 
   componentDidUpdate(prevProps) {
     this.valueChanged(prevProps.value);
+    this.pendingChanged(prevProps.pending);
     this.chosenChanged(prevProps.chosen);
   }
 
   render() {
     return (
-      <ol className={this.listDoneClass()}>
+      <ol className={this.state.listClass}>
         {this.state.list.map((value, index) => {
           return <li key={index} className={this.state.chosen === index ? 'active' : ''}>{value}</li>
         })}
